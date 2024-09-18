@@ -73,14 +73,17 @@ function agregarEmpleado(event) {
     event.preventDefault();
     const apellidos = document.getElementById('apellidos').value;
     const nombres = document.getElementById('nombres').value;
-    const departamento = document.getElementById('departamento').value;
+    const departamento = document.getElementById('departamento');
     const municipio = document.getElementById('municipio').value;
+
+    const departamentoNombre = departamento.options[departamento.selectedIndex].text;
 
     ultimoId += 1;
     const empleado = {
         id: ultimoId,
         apellidos,
         nombres,
+        departamento: departamentoNombre,
         ciudad: municipio
     };
     empleados.push(empleado);
@@ -95,6 +98,10 @@ function agregarEmpleado(event) {
     const colName = document.createElement('td');
     colName.appendChild(document.createTextNode(nombres+" "+apellidos));
     row.appendChild(colName)
+
+    const colDepartment = document.createElement('td');
+    colDepartment.appendChild(document.createTextNode(departamentoNombre));
+    row.appendChild(colDepartment)
 
     const colCity = document.createElement('td');
     colCity.appendChild(document.createTextNode(municipio));
