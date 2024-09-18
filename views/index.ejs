@@ -8,39 +8,48 @@
 </head>
 <body>
     <header>
-        <h1>Gestión de Empleados</h1>
+        <h1 class="text-center">Gestión de Empleados</h1>
     </header>
     <main>
         <section class="formulario">
-            <h2>Registrar Empleado</h2>
-            <form id="formularioEmpleado">
-                <input type="text" id="apellidos" placeholder="Apellidos" required>
-                <input type="text" id="nombres" placeholder="Nombres" required>
-                <select id="departamento" required>
-                    <option value="">Seleccione un Departamento</option>
-                </select>
-                <select id="municipio" required>
-                    <option value="">Seleccione un Municipio</option>
-                </select>
-                <input type="date" id="fechaNacimiento" required>
-                <input type="number" id="salario" placeholder="Salario" required>
-                <button type="submit" id="bt1">Agregar Empleado</button>
+            <h2 class="text-center">Registrar Empleado</h2>
+            <form id="formularioEmpleado" class="mb-3">
+                
+                <div class="mb-3">
+                    <label class="form-label">Apellidos</label>
+                    <input type="text" id="apellidos" placeholder="Apellidos" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Nombres</label>
+                    <input type="text" id="nombres" placeholder="Nombres" class="form-control" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">Departamento</label>
+                    <select id="departamento" class="form-select" required>
+                        <option value="">Seleccione un Departamento</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">Municipio</label>
+                    <select id="municipio" class="form-select" required>
+                        <option value="">Seleccione un Municipio</option>
+                    </select>
+                </div>
+                
+                <button type="submit" id="bt1" class="btn btn-primary">Agregar Empleado</button>
             </form>
         </section>
-        <section class="busqueda">
-            <h2>Buscar Empleado por ID</h2>
-            <input type="number" id="busquedaId" placeholder="ID de Empleado">
-            <button onclick="filtrarPorId()">Buscar</button>
-        </section>
         <section class="lista">
-            <h2>Lista de Empleados</h2>
-            <table>
+            <h2 class="text-center">Lista de Empleados</h2>
+            <table class="table">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Ciudad</th>
-                        <th>Edad</th>
                     </tr>
                 </thead>
                 <tbody id="tablaEmpleados">

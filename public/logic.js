@@ -1,13 +1,3 @@
-document.getElementById('busquedaId').addEventListener('keypress',(event)=>{
-    if(!(/[0-9]/.test(event.key))){
-        event.preventDefault()
-    }
-})
-document.getElementById('salario').addEventListener('keypress',(event)=>{
-    if(!(/[0-9]/.test(event.key))){
-        event.preventDefault()
-    }
-})
 document.getElementById('apellidos').addEventListener('keypress',(event)=>{
     if(!(/[a-zA-Z\s ]/.test(event.key))){
         event.preventDefault()
@@ -85,16 +75,13 @@ function agregarEmpleado(event) {
     const nombres = document.getElementById('nombres').value;
     const departamento = document.getElementById('departamento').value;
     const municipio = document.getElementById('municipio').value;
-    const fechaNacimiento = document.getElementById('fechaNacimiento').value;
-    const salario = document.getElementById('salario').value;
 
     ultimoId += 1;
     const empleado = {
         id: ultimoId,
         apellidos,
         nombres,
-        ciudad: municipio,
-        edad: calcularEdad(fechaNacimiento),
+        ciudad: municipio
     };
     empleados.push(empleado);
 
@@ -113,29 +100,7 @@ function agregarEmpleado(event) {
     colCity.appendChild(document.createTextNode(municipio));
     row.appendChild(colCity)
 
-    const colAge = document.createElement('td');
-    colAge.appendChild(document.createTextNode(calcularEdad(fechaNacimiento)));
-    row.appendChild(colAge)
-
     body.appendChild(row)
     event.target.reset();
 }
 
-function calcularEdad(fechaNacimiento) {
-    const fechaActual = new Date();
-    const fechaNac = new Date(fechaNacimiento);
-    const edad = fechaActual.getFullYear() - fechaNac.getFullYear();
-    return edad;
-}
-
-function filtrarPorId() {
-    const idBuscado = parseInt(document.getElementById('busquedaId').value);
-
-    const empleadoEncontrado = empleados.find(empleado => empleado.id === idBuscado);
-
-    if (empleadoEncontrado) {
-        alert(`Empleado encontrado: ${empleadoEncontrado.nombres} ${empleadoEncontrado.apellidos} ${empleadoEncontrado.ciudad} ${empleadoEncontrado.edad}`);
-    } else {
-        alert('Empleado no encontrado');
-    }
-}
